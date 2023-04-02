@@ -1,16 +1,15 @@
-name: Rust CI
+name: CI
 
-on: [push, pull_request]
+on:
+  #manually trigger runs
+  workflow_dispatch:
 
 jobs:
-  check:
-    name: Check
+
+   bench_ubuntulatest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-      - uses: actions-rs/cargo@v1
-        with:
-          command: check
+      - name: Run on ubuntu latest
+        run: |
+           which hyperfine
+         
